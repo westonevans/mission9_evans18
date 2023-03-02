@@ -34,21 +34,21 @@ namespace mission9_evans18.Infrastructure
         public string PageClassNormal { get; set; }
         public string PageClassSelected { get; set; }
 
-        public override void Process(TagHelperContent thc, TagHelperOutput tho)
+        public override void Process(TagHelperContext thc, TagHelperOutput tho)
         {
             IUrlHelper uh = uhf.GetUrlHelper(vc);
 
             TagBuilder final = new TagBuilder("div");
 
-            for (int i = 1; i < PageBlah.TotalPages; i++ )
+            for (int i = 1; i <= PageBlah.TotalPages; i++ )
             {
                 TagBuilder tb = new TagBuilder("a");
 
                 tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
                 if (PageClassesEnabled)
                 {
-                    tag.AddCssClass(PageClass);
-                    tag.AddCssClass(i == PageBlah.CurrentPage
+                    tb.AddCssClass(PageClass);
+                    tb.AddCssClass(i == PageBlah.CurrentPage
                         ? PageClassSelected : PageClassNormal);
                 }
                 tb.InnerHtml.Append(i.ToString());
