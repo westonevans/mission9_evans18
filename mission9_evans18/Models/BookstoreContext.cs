@@ -20,6 +20,7 @@ namespace mission9_evans18.Models
         }
 
         public DbSet<Books> Books { get; set; }
+        public DbSet<Purchase> Purchases { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
