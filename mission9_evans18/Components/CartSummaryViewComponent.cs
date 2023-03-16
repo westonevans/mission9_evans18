@@ -9,14 +9,14 @@ namespace mission9_evans18.Components
 {
     public class CartSummaryViewComponent : ViewComponent
     {
-        private Cart cart;
-        public CartSummaryViewComponent(Cart cartService)
+        private Basket basket;
+        public CartSummaryViewComponent(Basket b)
         {
-            cart = cartService;
+            basket = b;
         }
         public IViewComponentResult Invoke()
         {
-            return View(cart);
+            return View(basket);
         }
     }
 }
